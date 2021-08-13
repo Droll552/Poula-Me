@@ -1,77 +1,62 @@
 <x-base>
-    <section class="px-6 py-8">
-        <main class="max-w-lg mx-auto mt-10 bg-gray-100 border border-gray-200 p-6 rounded-xl">
-            <h1 class="text-center font-bold text-xl">Register!</h1>
+    <section>
+        <main>
+            <h1>Register!</h1>
 
-            <form method="POST" action="/register" class="mt-10">
+            <form method="POST" action="/register">
                 @csrf
-
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                           for="username"
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Username</span>
+                    <input
+                        class="form-control"
+                        aria-label="Username:"
+                        aria-describedby="basic-addon1"
+                        type="text"
+                        name="username"
+                        id="username"
+                        required
                     >
-                        Username
-                    </label>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">City:</span>
+                    <input
+                        class="form-control"
+                        aria-label="City:"
+                        aria-describedby="basic-addon1"
+                        type="text"
+                        name="city"
+                        id="city"
+                        required
+                    >
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Email:</span>
+                    <input
+                        class="form-control"
+                        aria-label="Email:"
+                        aria-describedby="basic-addon1"
+                        type="text"
+                        name="email"
+                        id="email"
+                        required
+                    >
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Password:</span>
 
-                    <input class="border border-gray-400 p-2 w-full"
-                           type="text"
-                           name="username"
-                           id="username"
-                           required
+                    <input
+                        class="form-control"
+                        aria-label="Password:"
+                        aria-describedby="basic-addon1"
+                        type="password"
+                        name="password"
+                        id="password"
+                        required
                     >
                 </div>
 
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                           for="city"
-                    >
-                        City
-                    </label>
-
-                    <input class="border border-gray-400 p-2 w-full"
-                           type="text"
-                           name="city"
-                           id="city"
-                           required
-                    >
-                </div>
-
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                           for="email"
-                    >
-                        Email
-                    </label>
-
-                    <input class="border border-gray-400 p-2 w-full"
-                           type="email"
-                           name="email"
-                           id="email"
-                           required
-                    >
-                </div>
-
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                           for="password"
-                    >
-                        Password
-                    </label>
-
-                    <input class="border border-gray-400 p-2 w-full"
-                           type="password"
-                           name="password"
-                           id="password"
-                           required
-                    >
-                </div>
-
-                <div class="mb-6">
-                    <button type="submit"
-                            class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500"
-                    >
-                        Submit
-                    </button>
+                <div>
+                    <button type="submit" class="btn btn-info mt-4">Register</button>
                 </div>
             </form>
         </main>

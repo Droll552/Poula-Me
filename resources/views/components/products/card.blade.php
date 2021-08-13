@@ -1,15 +1,30 @@
 @props(['product'])
 
-<div>
-    <h5>
-        <a href="/products/{{ $product->slug }}">
-            {{ $product->name }}
-        </a>
-    </h5>
-    <p>{{ $product->category }}</p>
-    <p>{{ $product->price }}</p>
-    <p>{{ $product->description }}</p>
-    <p>{{ $product->condition }}</p>
-    <p>Created: <time>{{ $product->created_at->diffForHumans() }}</time></p>
-
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">
+            <a href="/products/{{ $product->slug }}">
+                {{ $product->name }}
+            </a>
+        </h5>
+        <p class="card-text">
+            {{ $product->category }}
+        </p>
+        <p class="card-text">
+            <small class="text-muted">
+                {{ $product->condition }}
+            </small>
+        </p>
+        <p class="card-text">
+            <small class="text-muted">
+                {{ $product->created_at->diffForHumans() }}
+            </small>
+        </p>
+    </div>
+    <img src="..." class="card-img-bottom" alt="...">
 </div>
+
+
+
+
+
