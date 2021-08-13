@@ -1,9 +1,9 @@
 <x-base>
     <section>
         <main>
-            <h1 >Login!</h1>
+            <h1>Login!</h1>
 
-            <form method="POST" action="/login" >
+            <form method="POST" action="/login">
                 @csrf
 
                 <div class="input-group mb-3">
