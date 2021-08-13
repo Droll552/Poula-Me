@@ -10,8 +10,22 @@
 <body>
 <h1>Hello World!</h1>
 <h2>Top Products</h2>
-{{ $slot }}
 <a href="/dashboard/create/">Create Product</a>
+@auth
+    <p>Welcome {{ auth()->user()->username }}</p>
+    <form id="logout-form" method="POST" action="/logout">
+        @csrf
+        <button type="submit"
+        >
+            Logout
+        </button>
+    </form>
+@else
+    <a href="/register">Register</a>
+    <a href="/login">Login</a>
+@endif
+    {{ $slot }}
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
