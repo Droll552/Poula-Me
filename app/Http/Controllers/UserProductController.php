@@ -17,11 +17,11 @@ class UserProductController extends Controller
 
     public function store()
     {
-        Product::create(array_merge($this->validateProduct(), [
+        dd(Product::create(array_merge($this->validateProduct(), [
             'user_id' =>request()->user()->id
-        ]));
+        ])));
 
-        return redirect('/');
+//        return redirect('/');
     }
 
     protected function validateProduct(?Product $product = null): array

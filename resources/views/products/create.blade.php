@@ -1,4 +1,4 @@
-<form method="POST" action="/register" class="mt-10">
+<form method="POST" action="/dashboard/create" class="mt-10">
     @csrf
 
     <div>
