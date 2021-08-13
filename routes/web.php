@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [ProductController::class, 'index'])->name('home');
+Route::get('products/{product:slug}', [ProductController::class, 'show']);
 
 Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
 Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
@@ -28,6 +29,7 @@ Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
 Route::get('dashboard', [UserProductController::class, 'index']);
-Route::post('dashboard', [UserProductController::class, 'store']);
+
 Route::get('dashboard/create', [UserProductController::class, 'create']);
 Route::post('dashboard', [UserProductController::class, 'store']);
+

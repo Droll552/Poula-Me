@@ -1,7 +1,11 @@
 @props(['product'])
 
 <div>
-    <h5>{{ $product->name }}</h5>
+    <h5>
+        <a href="/products/{{ $product->slug }}">
+            {{ $product->name }}
+        </a>
+    </h5>
     <p>{{ $product->category }}</p>
     <p>{{ $product->price }}</p>
     <p>{{ $product->description }}</p>
