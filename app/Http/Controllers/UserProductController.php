@@ -13,12 +13,27 @@ class UserProductController extends Controller
            'products' => Product::all()
         ]);
     }
-    public function create(Product $product)
+    public function create()
     {
-        return view('products.create', [
-            'product' => $product
-        ]);
+        return view('products.create');
     }
+
+//    public function store()
+//    {
+//        $attributes = request()->validate([
+//            'name'=>'required',
+//            'slug'=>['required', Rule::exists('products', 'slug')],
+//            'category'=>'required',
+//            'price'=>'required',
+//            'description'=>'required',
+//            'condition'=>'required'
+//        ]);
+//
+//        $attributes['user_id'] = auth()->id();
+//
+//        Product::create($attributes);
+//        return redirect('/');
+//    }
 
     public function store()
     {

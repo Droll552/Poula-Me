@@ -9,9 +9,11 @@
 
 <body>
 <h1>Poula Me</h1>
-<a href="/dashboard/create/">Create Product</a>
+
 @auth
     <p>Welcome {{ auth()->user()->username }}</p>
+    <a href="/dashboard/create/">Create Product</a>
+
     <form id="logout-form" method="POST" action="/logout">
         @csrf
         <button type="submit"
