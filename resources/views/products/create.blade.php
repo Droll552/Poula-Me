@@ -5,68 +5,82 @@
 
             <form method="POST" action="/dashboard">
                 @csrf
-                <div>
-                    <label for="name">Name</label>
-
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Product Name:</span>
                     <input
+                        class="form-control"
+                        aria-label="Product Name:"
+                        aria-describedby="basic-addon1"
                         type="text"
                         name="name"
                         id="name"
                         required
                     >
                 </div>
-                <div>
-                    <label for="slug">Slug</label>
-
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Slug:</span>
                     <input
+                        class="form-control"
+                        aria-label="Slug:"
+                        aria-describedby="basic-addon1"
                         type="text"
                         name="slug"
                         id="slug"
                         required
                     >
                 </div>
-                <div>
-                    <label for="category">Category</label>
-
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Category:</span>
                     <input
+                        class="form-control"
+                        aria-label="Category:"
+                        aria-describedby="basic-addon1"
                         type="text"
                         name="category"
                         id="category"
                         required
                     >
                 </div>
-                <div>
-                    <label for="price">Price</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Price:</span>
 
                     <input
+                        class="form-control"
+                        aria-label="Price:"
+                        aria-describedby="basic-addon1"
                         type="number"
                         name="price"
                         id="price"
                         required
                     >
                 </div>
-                <div>
-                    <label for="description">Description</label>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Condition:</span>
 
                     <input
-                        type="text"
-                        name="description"
-                        id="description"
-                        required
-                    >
-                </div>
-                <div>
-                    <label for="condition">Condition</label>
-
-                    <input
+                        class="form-control"
+                        aria-label="Condition:"
+                        aria-describedby="basic-addon1"
                         type="text"
                         name="condition"
                         id="condition"
                         required
                     >
                 </div>
+                <div class="input-group">
+                    <span class="input-group-text">Description:</span>
 
-                <button type="submit">Publish</button>
+                    <textarea
+                        aria-label="Description:"
+                        class="form-control"
+                        name="description"
+                        id="description"
+                        required
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-info mt-4">Publish</button>
             </form>
         </main>
     </section>
