@@ -6,41 +6,35 @@
             <form method="POST" action="/login" >
                 @csrf
 
-                <div>
-                    <label
-                           for="email"
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Email:</span>
+                    <input
+                        class="form-control"
+                        aria-label="Email:"
+                        aria-describedby="basic-addon1"
+                        type="text"
+                        name="email"
+                        id="email"
+                        required
                     >
-                        Email
-                    </label>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Password:</span>
 
                     <input
-                           type="email"
-                           name="email"
-                           id="email"
-                           required
+                        class="form-control"
+                        aria-label="Password:"
+                        aria-describedby="basic-addon1"
+                        type="password"
+                        name="password"
+                        id="password"
+                        required
                     >
                 </div>
 
                 <div>
-                    <label
-                           for="password"
-                    >
-                        Password
-                    </label>
-
-                    <input
-                           type="password"
-                           name="password"
-                           id="password"
-                           required
-                    >
-                </div>
-
-                <div>
-                    <button type="submit"
-                    >
-                        Submit
-                    </button>
+                    <button type="submit" class="btn btn-info mt-4">Login</button>
                 </div>
             </form>
         </main>
