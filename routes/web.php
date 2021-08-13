@@ -28,8 +28,7 @@ Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
 
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
-Route::get('dashboard', [UserProductController::class, 'index']);
-
 Route::get('dashboard/create', [UserProductController::class, 'create']);
 Route::post('dashboard', [UserProductController::class, 'store']);
 
+Route::get('dashboard', [UserProductController::class, 'index']);

@@ -3,11 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
 class UserProductController extends Controller
 {
+    public function index()
+    {
+        return view('products.index', [
+           'products' => Product::all()
+        ]);
+    }
     public function create(Product $product)
     {
         return view('products.create', [
@@ -17,11 +22,11 @@ class UserProductController extends Controller
 
     public function store()
     {
-        dd(Product::create(array_merge($this->validateProduct(), [
+        Product::create(array_merge($this->validateProduct(), [
             'user_id' =>request()->user()->id
-        ])));
+        ]));
 
-//        return redirect('/');
+        return redirect('/');
     }
 
     protected function validateProduct(?Product $product = null): array

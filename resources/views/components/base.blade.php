@@ -8,8 +8,7 @@
 </head>
 
 <body>
-<h1>Hello World!</h1>
-<h2>Top Products</h2>
+<h1>Poula Me</h1>
 <a href="/dashboard/create/">Create Product</a>
 @auth
     <p>Welcome {{ auth()->user()->username }}</p>
