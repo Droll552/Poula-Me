@@ -3,7 +3,7 @@
         <main>
             <h1>Create New Product</h1>
 
-            <form method="POST" action="/dashboard">
+            <form method="POST" action="/dashboard" enctype="multipart/form-data">
                 @csrf
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Product Name:</span>
@@ -15,6 +15,16 @@
                         name="name"
                         id="name"
                         required
+                    >
+                </div>
+                <div class="input-group mb-3">
+                    <label
+                        class="input-group-text" for="inputGroupFile01">Upload image</label>
+                    <input
+                        name="image"
+                        type="file"
+                        class="form-control"
+                        id="inputGroupFile01"
                     >
                 </div>
                 <div class="input-group mb-3">

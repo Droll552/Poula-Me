@@ -20,25 +20,22 @@ class UserProductController extends Controller
 
     public function store()
     {
-        Product::create(array_merge($this->validateProduct(), [
-            'user_id' =>request()->user()->id
-        ]));
-
-        return redirect('/');
+       $path = request()->file('image')->store('images');
+//        $attributes = request()->validate([
+//            'name'=>'required',
+//            'slug'=>'required',
+//            'image'=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+//            'category'=>'required',
+//            'price'=>'required',
+//            'description'=>'required',
+//            'condition'=>'required'
+//        ]);
+//
+//        $attributes['user_id'] = auth()->id();
+//
+//        Product::create($attributes);
+//
+//        return redirect('/');
     }
 
-    protected function validateProduct(?Product $product = null): array
-    {
-        $product ??= new Product();
-
-        return request()->validate([
-           'name'=>'required',
-           'slug'=>['required', Rule::unique('products', 'slug')->ignore($product)],
-           'category'=>'required',
-           'price'=>'required',
-           'description'=>'required',
-           'condition'=>'required'
-        ]);
-
-    }
 }
