@@ -1,19 +1,19 @@
 <x-base>
-    <section class="px-6 py-8">
-        <main class="max-w-lg mx-auto mt-10 bg-gray-100 border border-gray-200 p-6 rounded-xl">
-            <h1 class="text-center font-bold text-xl">Register!</h1>
+    <section>
+        <main>
+            <h1>Register!</h1>
 
-            <form method="POST" action="/register" class="mt-10">
+            <form method="POST" action="/register">
                 @csrf
 
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                <div>
+                    <label
                            for="username"
                     >
                         Username
                     </label>
 
-                    <input class="border border-gray-400 p-2 w-full"
+                    <input
                            type="text"
                            name="username"
                            id="username"
@@ -21,14 +21,14 @@
                     >
                 </div>
 
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                <div >
+                    <label
                            for="city"
                     >
                         City
                     </label>
 
-                    <input class="border border-gray-400 p-2 w-full"
+                    <input
                            type="text"
                            name="city"
                            id="city"
@@ -36,14 +36,14 @@
                     >
                 </div>
 
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                <div>
+                    <label
                            for="email"
                     >
                         Email
                     </label>
 
-                    <input class="border border-gray-400 p-2 w-full"
+                    <input
                            type="email"
                            name="email"
                            id="email"
@@ -51,14 +51,14 @@
                     >
                 </div>
 
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                <div>
+                    <label
                            for="password"
                     >
                         Password
                     </label>
 
-                    <input class="border border-gray-400 p-2 w-full"
+                    <input
                            type="password"
                            name="password"
                            id="password"
@@ -66,9 +66,8 @@
                     >
                 </div>
 
-                <div class="mb-6">
+                <div >
                     <button type="submit"
-                            class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500"
                     >
                         Submit
                     </button>
