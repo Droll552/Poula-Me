@@ -1,6 +1,6 @@
 <x-base>
     <div class="card mb-3">
-        <img src="..." class="card-img-top" alt="...">
+        <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top" alt="...">
         <div class="card-body">
             <p class="card-text">
                 <small class="text-muted">

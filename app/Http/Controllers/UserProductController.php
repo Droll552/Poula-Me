@@ -20,22 +20,22 @@ class UserProductController extends Controller
 
     public function store()
     {
-       $path = request()->file('image')->store('images');
-//        $attributes = request()->validate([
-//            'name'=>'required',
-//            'slug'=>'required',
-//            'image'=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-//            'category'=>'required',
-//            'price'=>'required',
-//            'description'=>'required',
-//            'condition'=>'required'
-//        ]);
-//
-//        $attributes['user_id'] = auth()->id();
-//
-//        Product::create($attributes);
-//
-//        return redirect('/');
+        $attributes = request()->validate([
+            'name'=>'required',
+            'slug'=>'required',
+            'image'=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'category'=>'required',
+            'price'=>'required',
+            'description'=>'required',
+            'condition'=>'required'
+        ]);
+
+        $attributes['user_id'] = auth()->id();
+        $attributes['image'] = request()->file('image')->store('images');
+
+        Product::create($attributes);
+
+        return redirect('/');
     }
 
 }
