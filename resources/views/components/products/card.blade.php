@@ -21,7 +21,7 @@
             </small>
         </p>
     </div>
-    <img src="..." class="card-img-bottom" alt="...">
+    <img src="{{ asset('storage/' . $product->image) }}" class="card-img-bottom" alt="...">
 </div>
 
 
