@@ -3,7 +3,7 @@
         <main>
             <h1>Edit Product</h1>
 
-            <form method="POST" action="/dashboard/{{ $product->id }}" enctype="multipart/form-data">
+            <form method="POST" action="/dashboard/products/{{ $product->id }}" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
                 <div class="input-group mb-3">
@@ -26,18 +26,6 @@
                         type="file"
                         class="form-control"
                         id="inputGroupFile01"
-                    >
-                </div>
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">Slug:</span>
-                    <input
-                        class="form-control"
-                        aria-label="Slug:"
-                        aria-describedby="basic-addon1"
-                        type="text"
-                        name="slug"
-                        id="slug"
-                        required
                     >
                 </div>
                 <div class="input-group mb-3">

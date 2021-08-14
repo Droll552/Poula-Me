@@ -3,7 +3,7 @@
         <main>
             <h1>Create New Product</h1>
 
-            <form method="POST" action="/dashboard" enctype="multipart/form-data">
+            <form method="POST" action="/dashboard/products" enctype="multipart/form-data">
                 @csrf
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Product Name:</span>
@@ -25,18 +25,6 @@
                         type="file"
                         class="form-control"
                         id="inputGroupFile01"
-                    >
-                </div>
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">Slug:</span>
-                    <input
-                        class="form-control"
-                        aria-label="Slug:"
-                        aria-describedby="basic-addon1"
-                        type="text"
-                        name="slug"
-                        id="slug"
-                        required
                     >
                 </div>
                 <div class="input-group mb-3">
