@@ -1,10 +1,11 @@
 <x-base>
     <section>
         <main>
-            <h1>Create New Product</h1>
+            <h1>Edit Product</h1>
 
-            <form method="POST" action="/dashboard/products" enctype="multipart/form-data">
+            <form method="POST" action="/dashboard/products/{{ $product->id }}" enctype="multipart/form-data">
                 @csrf
+                @method('PATCH')
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Product Name:</span>
                     <input
@@ -78,7 +79,7 @@
                     ></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-info mt-4">Publish</button>
+                <button type="submit" class="btn btn-info mt-4">Update</button>
             </form>
         </main>
     </section>

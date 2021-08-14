@@ -10,8 +10,7 @@ class ProductController extends Controller
     public function index()
     {
         return view('index', [
-            'products' => Product::all(
-            )
+            'products' => Product::all()->take(5)
         ]);
     }
 

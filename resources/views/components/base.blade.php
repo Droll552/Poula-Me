@@ -23,7 +23,10 @@
                 <ul class="navbar-nav">
                     @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="/dashboard/create/">Create Product</a>
+                            <a class="nav-link" href="/dashboard/products/">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dashboard/products/create/">Create Product</a>
                         </li>
 
                         <li class="nav-item dropdown">
