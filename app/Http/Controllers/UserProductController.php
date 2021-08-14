@@ -13,9 +13,19 @@ class UserProductController extends Controller
            'products' => Product::all()
         ]);
     }
-    public function create()
+
+    public function show(Product $product)
     {
-        return view('products.create');
+        return view('products.show', [
+            'product' => $product
+        ]);
+    }
+
+    public function create(Product $product)
+    {
+        return view('products.create', [
+            'product' => $product
+        ]);
     }
 
     public function store()
@@ -31,11 +41,48 @@ class UserProductController extends Controller
         ]);
 
         $attributes['user_id'] = auth()->id();
-        $attributes['image'] = request()->file('image')->store('images');
+        if ($attributes['image'] ?? false){
+            $attributes['image'] = request()->file('image')->store('images');
+        }
+
 
         Product::create($attributes);
 
         return redirect('/');
     }
+
+    public function edit(Product $product)
+    {
+        return view('products.edit', ['product'=>$product]);
+    }
+
+    public function update(Product $product)
+    {
+        $attributes = request()->validate([
+            'name'=>'required',
+            'slug'=>['required', Rule::unique('products', 'slug')->ignore($product)],
+            'image'=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'category'=>'required',
+            'price'=>'required',
+            'description'=>'required',
+            'condition'=>'required'
+        ]);
+
+        if($attributes['image'] ?? false) {
+            $attributes['image'] = request()->file('image')->store('images');
+        }
+        $product->update($attributes);
+
+        return redirect('/');
+
+    }
+
+    public function destroy (Product $product)
+    {
+        $product->delete();
+        return back();
+
+    }
+
 
 }

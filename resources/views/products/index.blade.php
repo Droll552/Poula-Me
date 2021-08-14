@@ -3,7 +3,7 @@
     <h3>My Products:</h3>
     @if ($products->count())
         @foreach($products as $product)
-            <x-products.card
+            <x-products.user-card
                 :product="$product"
             />
         @endforeach
