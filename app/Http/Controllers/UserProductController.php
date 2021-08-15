@@ -11,8 +11,9 @@ class UserProductController extends Controller
     public function index()
     {
         return view('products.index', [
-           'products' => Product::all()
+            'products' => Product::all()->where('user_id', auth()->user()->id)
         ]);
+
     }
 
     public function show(Product $product)
