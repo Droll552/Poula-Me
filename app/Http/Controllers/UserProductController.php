@@ -3,16 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use Illuminate\Support\Str;
-use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Gate;
+
 
 class UserProductController extends Controller
 {
     public function index()
     {
         return view('products.index', [
-           'products' => Product::all()
+            'products' => Product::all()->where('user_id', auth()->user()->id)
         ]);
+
     }
 
     public function show(Product $product)
@@ -33,7 +34,6 @@ class UserProductController extends Controller
     {
         $attributes = request()->validate([
             'name'=>'required',
-//            'slug'=>'required',
             'image'=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'category'=>'required',
             'price'=>'required',
@@ -42,7 +42,7 @@ class UserProductController extends Controller
         ]);
 
         $attributes['user_id'] = auth()->id();
-        
+
         if ($attributes['image'] ?? false){
             $attributes['image'] = request()->file('image')->store('images');
         }
@@ -55,7 +55,13 @@ class UserProductController extends Controller
 
     public function edit(Product $product)
     {
-        return view('products.edit', ['product'=>$product]);
+        if( Gate::allows('update-product', $product))
+        {
+            return view('products.edit', ['product'=>$product]);
+        } else {
+            return 'You have no power';
+        }
+
     }
 
     public function update(Product $product)
@@ -81,8 +87,14 @@ class UserProductController extends Controller
 
     public function destroy (Product $product)
     {
-        $product->delete();
-        return redirect('/dashboard/products/');
+        if( Gate::allows('update-product', $product))
+        {
+            $product->delete();
+            return redirect('/dashboard/products/');
+        } else {
+            return 'You have no power';
+        }
+
 
     }
 
