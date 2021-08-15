@@ -55,12 +55,8 @@ class UserProductController extends Controller
 
     public function edit(Product $product)
     {
-        if( Gate::allows('update-product', $product))
-        {
-            return view('products.edit', ['product'=>$product]);
-        } else {
-            return 'You have no power';
-        }
+        $this->authorize('update', $product);
+        return view('products.edit', ['product'=>$product]);
 
     }
 
@@ -79,6 +75,7 @@ class UserProductController extends Controller
         if($attributes['image'] ?? false) {
             $attributes['image'] = request()->file('image')->store('images');
         }
+        $this->authorize('update', $product);
         $product->update($attributes);
 
         return redirect('/dashboard/products/');
@@ -87,14 +84,9 @@ class UserProductController extends Controller
 
     public function destroy (Product $product)
     {
-        if( Gate::allows('update-product', $product))
-        {
-            $product->delete();
-            return redirect('/dashboard/products/');
-        } else {
-            return 'You have no power';
-        }
-
+        $this->authorize('delete', $product);
+        $product->delete();
+        return redirect('/dashboard/products/');
 
     }
 
