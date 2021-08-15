@@ -42,9 +42,7 @@ class UserProductController extends Controller
         ]);
 
         $attributes['user_id'] = auth()->id();
-
-//        ToDo: If product name exists, there will be error. Must find the way to fix that
-        $attributes['slug'] = Str::slug(request()->name, '-');
+        
         if ($attributes['image'] ?? false){
             $attributes['image'] = request()->file('image')->store('images');
         }
@@ -71,7 +69,7 @@ class UserProductController extends Controller
             'condition'=>'required'
         ]);
 
-        $attributes['slug'] = Str::slug(request()->name, '-');
+
         if($attributes['image'] ?? false) {
             $attributes['image'] = request()->file('image')->store('images');
         }
@@ -87,6 +85,5 @@ class UserProductController extends Controller
         return redirect('/dashboard/products/');
 
     }
-
 
 }
