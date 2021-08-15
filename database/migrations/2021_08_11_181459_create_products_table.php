@@ -20,7 +20,6 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('image')->nullable();
             $table->string('slug')->unique();
-            $table->string('category');
             $table->decimal('price', $precision = 8, $scale = 2);
             $table->text('description');
             $table->string('condition');
