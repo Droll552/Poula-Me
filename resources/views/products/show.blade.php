@@ -23,12 +23,14 @@
 
         </div>
         <a href="/">Back</a>
-        <a href="/dashboard/products/{{ $product->id }}/edit">Edit</a>
-        <form method="POST" action="/dashboard/products/{{ $product->id }}">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-info mt-4">Delete</button>
-        </form>
+        @can('update', $product)
+            <a href="/dashboard/products/{{ $product->id }}/edit">Edit</a>
+            <form method="POST" action="/dashboard/products/{{ $product->id }}">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-info mt-4">Delete</button>
+            </form>
+        @endcan
     </div>
 
 </x-base>
