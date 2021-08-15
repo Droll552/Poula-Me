@@ -1,20 +1,4 @@
-{{--@props(['user'])--}}
 @props(['product'])
-
-{{--<div class="card">--}}
-{{--    <div class="card-body">--}}
-{{--        <h5 class="card-title">--}}
-{{--            <a href="/dashboard/products/{{ user->product->slug }}">--}}
-{{--                {{ user->product->name }}--}}
-{{--            </a>--}}
-{{--        </h5>--}}
-
-{{--    </div>--}}
-{{--</div>--}}
-
-
-
-
 
 <div class="card">
     <div class="card-body">
