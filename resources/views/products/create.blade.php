@@ -27,17 +27,23 @@
                         id="inputGroupFile01"
                     >
                 </div>
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">Category:</span>
-                    <input
-                        class="form-control"
-                        aria-label="Category:"
-                        aria-describedby="basic-addon1"
-                        type="text"
-                        name="category"
-                        id="category"
-                        required
+                <div>
+                    <label
+                        class="input-group-text" for="category_id">Select Category
+                    </label>
+                    <select
+                        name="category_id"
+                        id="category_id"
+                        class="form-select"
+                        aria-label="Default select example"
                     >
+                    @foreach (\App\Models\Category::all() as $category)
+                        <option
+                            value="{{ $category->id  }}">
+                            {{$category->name}}
+                        </option>
+                    @endforeach
+                    </select>
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Price:</span>
