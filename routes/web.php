@@ -35,4 +35,4 @@ Route::get('dashboard', [DashboardController::class, 'index']);
 Route::resource('dashboard/products', UserProductController::class)->except('show');
 Route::get('dashboard/products/{product:slug}', [UserProductController::class, 'show']);
 
-//Route::resource('admin/categories', CategoryController::class)->except('show');
+Route::resource('dashboard/categories', CategoryController::class)->except('show');
