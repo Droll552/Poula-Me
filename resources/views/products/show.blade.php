@@ -12,6 +12,9 @@
                 {{ $product->name }}
             </h5>
             <p class="card-text">
+                Category: {{ $product->category->name }}
+            </p>
+            <p class="card-text">
                 Price: {{ $product->price }}
             </p>
             <p class="card-text">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Validation\Rule;
 
 
 class UserProductController extends Controller
@@ -35,7 +36,7 @@ class UserProductController extends Controller
         $attributes = request()->validate([
             'name'=>'required',
             'image'=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'category'=>'required',
+            'category_id'=>['required', Rule::exists('categories', 'id')],
             'price'=>'required',
             'description'=>'required',
             'condition'=>'required'
@@ -65,7 +66,7 @@ class UserProductController extends Controller
         $attributes = request()->validate([
             'name'=>'required',
             'image'=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'category'=>'required',
+            'category_id'=>['required', Rule::exists('categories', 'id')],
             'price'=>'required',
             'description'=>'required',
             'condition'=>'required'

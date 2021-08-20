@@ -6,22 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
-
-class Product extends Model
+class Category extends Model
 {
     use HasFactory;
     use HasSlug;
 
-    public function user()
+    public function products()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        $this->hasMany(Product::class);
     }
-
-    public function category()
-    {
-        return $this->belongsTo(Category::class,  'category_id');
-    }
-
 
     public function getSlugOptions() : SlugOptions
     {
