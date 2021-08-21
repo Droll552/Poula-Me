@@ -41,6 +41,16 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($password);
     }
 
+    public function isAdmin ()
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isUser()
+    {
+        return $this->role === 'user';
+    }
+
     public function products()
     {
         return $this->hasMany(Product::class, 'products');
