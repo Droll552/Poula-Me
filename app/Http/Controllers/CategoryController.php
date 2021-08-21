@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class CategoryController extends Controller
 {
     public function index()
     {
         return view('dashboard.categories.index', [
-           'category' => Category::all()
+           'categories' => Category::all()
         ]);
     }
 
@@ -50,6 +51,7 @@ class CategoryController extends Controller
 
     public function destroy(Category $category)
     {
+        Product::where('category_id', $category->id)->update(['category_id' => null]);
         $category->delete();
         return redirect('/dashboard/categories/');
 

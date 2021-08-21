@@ -8,7 +8,7 @@
             </a>
         </h5>
         <p class="card-text">
-            Category: {{ $product->category->name }}
+            Category: {{ $product->category->name ?? 'None' }}
         </p>
         <p class="card-text">
             <small class="text-muted">
