@@ -37,12 +37,12 @@
                         class="form-select"
                         aria-label="Default select example"
                     >
-                    @foreach (\App\Models\Category::all() as $category)
-                        <option
-                            value="{{ $category->id  }}">
-                            {{$category->name}}
-                        </option>
-                    @endforeach
+                        @foreach (\App\Models\Category::all() as $category)
+                            <option
+                                value="{{ $category->id  }}">
+                                {{$category->name}}
+                            </option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="input-group mb-3">
