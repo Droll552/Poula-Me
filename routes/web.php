@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AllProductController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
@@ -36,3 +37,5 @@ Route::resource('dashboard/products', UserProductController::class)->except('sho
 Route::get('dashboard/products/{product:slug}', [UserProductController::class, 'show']);
 
 Route::resource('dashboard/categories', CategoryController::class)->except('show');
+
+Route::get('products', [AllProductController::class, 'index']);
