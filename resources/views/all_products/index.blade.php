@@ -1,13 +1,11 @@
 <x-base>
-    <h2>Dashboard</h2>
-    <h3>My Products:</h3>
     @if ($products->count())
         @foreach($products as $product)
-            <x-products.user-card
+            <x-products.card
                 :product="$product"
             />
-
         @endforeach
+        {{$products->links()}}
     @else
         <p>No products yet, come back later</p>
     @endif

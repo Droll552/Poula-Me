@@ -23,6 +23,9 @@
                 <ul class="navbar-nav">
                     @auth
                         <li class="nav-item">
+                            <a class="nav-link" href="/products/">Products</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/dashboard/">Dashboard</a>
                         </li>
                         <li class="nav-item">
