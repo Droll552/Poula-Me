@@ -29,5 +29,6 @@ Route::resource('dashboard/products', UserProductController::class)->except('sho
 Route::get('dashboard/products/{product:slug}', [UserProductController::class, 'show']);
 
 Route::resource('dashboard/categories', CategoryController::class)->except('show');
-Route::resource('dashboard/users', UserController::class)->except(['create', 'store']);
+Route::resource('dashboard/users', UserController::class)->except(['create', 'store', 'show']);
+Route::get('dashboard/users/{user:slug}', [UserController::class, 'show']);
 

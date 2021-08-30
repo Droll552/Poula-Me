@@ -12,7 +12,9 @@
             <tbody>
             @foreach($users as $user)
                 <tr>
-                    <td>{{$user->username}}</td>
+                    <td><a href="/dashboard/users/{{$user->slug}}">
+                            {{$user->username}}</a>
+                    </td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->role}}</td>
                 </tr>
