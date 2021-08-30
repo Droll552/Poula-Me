@@ -15,15 +15,6 @@
                     <td>{{$user->username}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->role}}</td>
-
-{{--                    <td>--}}
-{{--                        <a href="/dashboard/categories/{{ $category->id }}/edit">Edit</a>--}}
-{{--                        <form method="POST" action="/dashboard/categories/{{ $category->id }}">--}}
-{{--                            @csrf--}}
-{{--                            @method('DELETE')--}}
-{{--                            <button type="submit" class="btn btn-info mt-4">Delete</button>--}}
-{{--                        </form>--}}
-{{--                    </td>--}}
                 </tr>
             @endforeach
             </tbody>
