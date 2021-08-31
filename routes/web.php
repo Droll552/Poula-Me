@@ -6,10 +6,13 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\UserProductController;
 use App\Http\Controllers\DashboardController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserController;
+
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ProductController::class, 'index'])->name('home');
+Route::get('products', [AllProductController::class, 'index']);
 Route::get('products/{product:slug}', [ProductController::class, 'show']);
 
 Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
@@ -26,5 +29,6 @@ Route::resource('dashboard/products', UserProductController::class)->except('sho
 Route::get('dashboard/products/{product:slug}', [UserProductController::class, 'show']);
 
 Route::resource('dashboard/categories', CategoryController::class)->except('show');
+Route::resource('dashboard/users', UserController::class)->except(['create', 'store', 'show']);
+Route::get('dashboard/users/{user:slug}', [UserController::class, 'show']);
 
-Route::get('products', [AllProductController::class, 'index']);

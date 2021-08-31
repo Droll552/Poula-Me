@@ -8,9 +8,11 @@
     @superadmin
     <p><a href="/dashboard/categories">Categories</a></p>
     <p><a href="/dashboard/categories/create">Category create</a></p>
+    <p><a href="/dashboard/users">Users</a></p>
     @endsuperadmin
     @admin
     <p><a href="/dashboard/categories">Categories</a></p>
     <p><a href="/dashboard/categories/create">Category create</a></p>
+    <p><a href="/dashboard/users">Users</a></p>
     @endadmin
 </x-base>
